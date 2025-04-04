@@ -43,14 +43,16 @@ public class addTwoNumbers {
 //        Explanation: 342 + 465 = 807.
 
         ListNode firstList = createLinkedList(l1);
-//        printLinkedList(firstList);
+        printLinkedList(firstList);
         ListNode secondList = createLinkedList(l2);
-//        printLinkedList(secondList);
-        addTwoNumbers(firstList, secondList);
+        printLinkedList(secondList);
+        ListNode sum = addTwoNumbers(firstList, secondList);
+        printLinkedList(sum);
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ArrayList<Integer> answer = new ArrayList<>();
+        ListNode placeholder = new ListNode(0);
+        ListNode current = placeholder;
 
         int carry = 0;
         int sum;
@@ -61,16 +63,23 @@ public class addTwoNumbers {
             int val2 = (l2 != null) ? l2.val : 0;
 
             sum = val1 + val2 + carry;
+
+            // Number that is to be carried over to the next set of numbers to be added eg. 17 is a carry of 1
             carry = sum / 10;
+
+            // Modulo 10 so that it gets the last digit as the value to be stored in the list
             value = sum % 10;
-            answer.add(value);
+
+            // Adds to list
+            current.next = new ListNode(value);
+
+            // Update current node
+            current = current.next;
 
             if (l1 != null) l1 = l1.next;
             if (l2 != null) l2 = l2.next;
-
         }
-        System.out.println(answer);
-        return new ListNode(0);
+        return placeholder.next;
     }
 
     public static ListNode createLinkedList(int[] nums){
