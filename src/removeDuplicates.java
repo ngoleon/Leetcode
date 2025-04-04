@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class removeDuplicates {
@@ -54,7 +55,15 @@ public class removeDuplicates {
         //    It does not matter what you leave beyond the returned k (hence they are underscores).
 
         int[] nums = {1, 1, 2};
-        System.out.println(removeDuplicates(nums));
+        System.out.println(removeDuplicatesOptimised(nums));
+
+        //    Input: nums = [1,1,1,2,2,3]
+        //    Output: 5, nums = [1,1,2,2,3,_]
+        //    Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
+        //    It does not matter what you leave beyond the returned k (hence they are underscores).
+
+        nums = new int[]{1, 1, 1, 2, 2, 3};
+        System.out.println(removeDuplicates2(nums));
     }
 
     public static int removeDuplicates(int[] nums) {
@@ -70,13 +79,27 @@ public class removeDuplicates {
     // Forgot it was a sorted array, this is faster
     public static int removeDuplicatesOptimised(int[] nums) {
         int insertIndex = 1;
-
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] != nums[insertIndex - 1]) {
                 nums[insertIndex++] = nums[i];
             }
         }
+        System.out.println(Arrays.toString(nums));
+        return insertIndex;
+    }
 
+    // Can have a dupe of 2
+    public static int removeDuplicates2(int[] nums) {
+        int insertIndex = 2;
+
+        for (int i = 2; i < nums.length; i++) {
+            if (nums[i] != nums[insertIndex - 2]) {
+                if(insertIndex == nums.length) break;
+                nums[insertIndex++] = nums[i];
+
+            }
+        }
+        System.out.println(Arrays.toString(nums));
         return insertIndex;
     }
 
