@@ -2,6 +2,8 @@ import java.util.HashMap;
 
 public class majorityElement {
     /*
+    169. Majority Element
+
     Given an array nums of size n, return the majority element.
 
     The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
@@ -69,7 +71,7 @@ public class majorityElement {
     }
 
     //Boyer-Moore Voting Algorithm, O(n) time, O(1) space
-    public static int majorityElementBooyerMoore(int[] nums) {
+    public static int majorityElementBoyerMoore(int[] nums) {
         int count = 0;
         int candidate = 0;
 

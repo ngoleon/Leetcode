@@ -3,10 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class twoSum {
-
-    // This is a simple Java class that contains a method to find two numbers in an array that add up to a target value.
-
     /*
+    1. Two Sum
 
     Example 1:
 

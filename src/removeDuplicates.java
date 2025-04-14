@@ -4,6 +4,9 @@ import java.util.HashSet;
 public class removeDuplicates {
 
     /*
+    26. Remove Duplicates From Sorted Array
+    80. Remove Duplicates From Sorted Array II
+
     Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
 
     Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
@@ -102,6 +105,4 @@ public class removeDuplicates {
         System.out.println(Arrays.toString(nums));
         return insertIndex;
     }
-
-
 }
